@@ -1,0 +1,6 @@
+node_modules
+*.rar
+reports/*
+screenshots
+videos
+package-lock.json

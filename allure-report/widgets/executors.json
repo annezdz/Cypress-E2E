@@ -1,0 +1,1 @@
+[{"name":"Jenkins","type":"jenkins","url":"http://localhost:8080/","buildOrder":30,"buildName":"Cypress Cucumber Allure Reports Tests #30","buildUrl":"http://localhost:8080/job/Cypress%20Cucumber%20Allure%20Reports%20Tests/30/","reportName":"AllureReport","reportUrl":"http://localhost:8080/job/Cypress%20Cucumber%20Allure%20Reports%20Tests/30/allure"}]
