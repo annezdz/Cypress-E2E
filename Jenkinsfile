@@ -18,8 +18,8 @@ pipeline{
         }
         stage('Testing') {
             steps {
-                bat "npm i"
-                bat "npx cypress run -e TAGS="@%TAG%" --headed --browser %BROWSER%
+                sh "npm i"
+                sh "npx cypress run -e TAGS="@%TAG%" --headed --browser %BROWSER%
             }
         }
         stage('Deploying') {
