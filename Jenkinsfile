@@ -1,11 +1,12 @@
 pipeline{
     agent any
 
-   /* parameters{
-        choice(name: 'TAG', choices: ['regression','login','contact-us','smoke'] , description: "Choice the tag where you want execute your scripts")
-        choice(name 'BROWSER', choices: ['chrome','edge','firefox','electron'], description: "Choice the browser where you want execute your scripts")
+    parameters{
+        choice choices: ['regression', 'login', 'contact-us', 'smoke'], description: 'Tags for execute scripts', name: 'TAG'
     }
-    */
+    parameters {
+        choice choices: ['chrome', 'edge', 'firefox', 'electron'], description: 'Browsers for execute scripts', name: 'BROWSER'
+    }
 
     options{
         ansiColor('xterm')
@@ -20,7 +21,7 @@ pipeline{
         stage('Testing') {
             steps {
                 bat "npm i"
-                bat 'npx cypress run -e TAGS="@login" --headed --browser chrome'
+                bat "npx cypress run -e TAGS=@${TAG} --headed --browser ${BROWSER}"
             }
         }
         stage('Deploying') {
@@ -36,3 +37,6 @@ pipeline{
         }
     }
 }
+
+
+
