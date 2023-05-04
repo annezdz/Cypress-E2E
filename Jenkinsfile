@@ -3,11 +3,9 @@ pipeline{
 
     parameters{
         choice choices: ['regression', 'login', 'contact-us', 'smoke'], description: 'Tags for execute scripts', name: 'TAG'
-    }
-    parameters {
         choice choices: ['chrome', 'edge', 'firefox', 'electron'], description: 'Browsers for execute scripts', name: 'BROWSER'
     }
-
+   
     options{
         ansiColor('xterm')
     }
