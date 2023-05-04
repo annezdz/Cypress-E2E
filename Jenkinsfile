@@ -2,8 +2,8 @@ pipeline{
     agent any
 
     parameters {
-        string(name: 'SPEC', defaultValue: "cypress/e2e/features/**", description: "Enter the script path that you want to execute")
-        choice(name 'BROWSER', choices: ['chrome','edge','firefox'], description: "Choice the browser where you want execute your scripts")
+        choice(name: 'TAG', choices: ['regression','login','contact-us','smoke'] , description: "Choice the tag where you want execute your scripts")
+        choice(name 'BROWSER', choices: ['chrome','edge','firefox','electron'], description: "Choice the browser where you want execute your scripts")
     }
 
     options {
@@ -18,8 +18,8 @@ pipeline{
         }
         stage('Testing') {
             steps {
-                bat "npn i"
-                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                bat "npm i"
+                bat "npx cypress run -e TAGS=${TAG} --browser ${BROWSER}"
             }
         }
         stage('Deploying') {
