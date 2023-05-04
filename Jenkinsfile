@@ -1,16 +1,16 @@
 pipeline{
     agent any
 
-    parameters {
+    parameters{
         choice(name: 'TAG', choices: ['regression','login','contact-us','smoke'] , description: "Choice the tag where you want execute your scripts")
         choice(name 'BROWSER', choices: ['chrome','edge','firefox','electron'], description: "Choice the browser where you want execute your scripts")
     }
 
-    options {
+    options{
         ansiColor('xterm')
     }
 
-    stages {
+    stages{
         stage('Building') {
             steps {
             echo "Building the application"
@@ -29,7 +29,7 @@ pipeline{
         }
     }
 
-    post {
+    post{
         always {
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }
