@@ -20,7 +20,7 @@ pipeline{
         stage('Testing') {
             steps {
                 bat "npm i"
-                bat 'cypress run -e TAGS=\"@login\" --headed'
+                bat 'npx cypress run -e TAGS="@login" --headed --browser chrome'
             }
         }
         stage('Deploying') {
