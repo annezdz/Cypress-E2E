@@ -32,6 +32,7 @@ pipeline{
     post{
         always {
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
         }
     }
 }
